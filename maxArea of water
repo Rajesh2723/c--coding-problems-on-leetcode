@@ -1,0 +1,18 @@
+make a maxArea variable and it a value (-infinity or INT_MIN) because we have to find the max.
+take two pointers one points to the first element and other to the last element and make a currArea variable whose height is the min height from the both given heights and multiply it with the distance between pillars or height(difference in the index of both the heights)
+traverse the whole array by the comparison according to the height.
+assign maxArea the max of both the maxArea and the currArea.
+
+int maxArea(vector& height) {
+
+        int maxArea=INT_MIN,i=0,j=height.size()-1;
+        while(i<j){
+                 int currArea=min(height[i],height[j])*(j-i);
+                if(height[i]<height[j]) i++;
+                        
+                else  j--;
+                 maxArea=max(maxArea,currArea);
+        }
+        return maxArea;
+    
+}
